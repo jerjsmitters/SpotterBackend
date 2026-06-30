@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/BusinessLayer/">
+    <Project Path="BusinessServices/BusinessServices.csproj" />
+  </Folder>
+  <Folder Name="/DataAccess/">
+    <Project Path="DataAccessServices/DataAccessServices.csproj" />
+    <Project Path="Entities/Entities.csproj" />
+  </Folder>
+  <Folder Name="/Testing/" />
+</Solution>
