@@ -1,0 +1,14 @@
+﻿using Models.ReferenceData;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Models.Template
+{
+    internal class WorkoutTemplate
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public List<ConfiguredMovement> ConfiguredMovements {  get; set; }
+    }
+}

@@ -6,3 +6,6 @@
 /BusinessServices/obj
 /DataAccessServices/obj
 /Entities/obj
+/Repositories/obj
+/BusinessEntities/obj
+/Entities/bin/Debug/net10.0
