@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace DTOs.ReferenceData
 {
-    public class WorkoutTemplateDto
+    public record WorkoutTemplateDto
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
         public List<ConfiguredMovementDto> ConfiguredMovements { get; set; }
     }

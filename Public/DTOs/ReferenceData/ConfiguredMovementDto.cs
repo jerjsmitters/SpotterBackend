@@ -2,7 +2,7 @@ using System;
 
 namespace DTOs.ReferenceData
 {
-    public class ConfiguredMovementDto
+    public record ConfiguredMovementDto
     {
         public int Id { get; set; }
         public MovementDto Movement { get; set; }

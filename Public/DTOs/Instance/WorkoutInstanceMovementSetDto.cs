@@ -3,7 +3,7 @@ using System;
 
 namespace DTOs.Instance
 {
-    public class WorkoutInstanceMovementSetDto : TimedInstanceDto
+    public record WorkoutInstanceMovementSetDto : TimedInstanceDto
     {
         public int Id { get; set; }
         public int SetNumber { get; set; }
