@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Models.Template
 {
-    internal class WorkoutTemplate
+    public class WorkoutTemplate
     {
         public int Id { get; set; }
         public string Name { get; set; }

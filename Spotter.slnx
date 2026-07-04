@@ -4,6 +4,7 @@
     <Project Path="Public/ExternalDependencies.csproj" />
   </Folder>
   <Folder Name="/Internal/">
+    <Project Path="Mapping/Mapping.csproj" Id="95c7247d-5511-4692-aade-dd0eaa5fb2d9" />
     <Project Path="Services/Service.csproj" />
   </Folder>
   <Folder Name="/Internal/DataAccess/">

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Models.Instance
 {
-    internal class WorkoutInstance : TimedInstance
+    public class WorkoutInstance : TimedInstance
     {
         public int Id { get; set; }
         public WorkoutTemplate WorkoutTemplate { get; set;  }

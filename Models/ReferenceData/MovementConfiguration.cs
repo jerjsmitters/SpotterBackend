@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Models.Template
 {
-    internal class MovementConfiguration
+    public class MovementConfiguration
     {
         public int Id { get; set; }
         public int TotalSets { get; set; }

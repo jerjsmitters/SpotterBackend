@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
+    <PackageReference Include="Riok.Mapperly" Version="4.3.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.9" />
+    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\Public\ExternalDependencies.csproj" />
   </ItemGroup>
 
 </Project>

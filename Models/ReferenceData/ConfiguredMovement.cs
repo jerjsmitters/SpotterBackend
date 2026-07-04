@@ -5,8 +5,7 @@ using System.Text;
 
 namespace Models.ReferenceData
 {
-    //dto
-    internal class ConfiguredMovement
+    public class ConfiguredMovement
     {
         public int Id { get; set;  }
         public Movement Movement { get; set; }
