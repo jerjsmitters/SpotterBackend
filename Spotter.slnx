@@ -4,13 +4,13 @@
     <Project Path="Public/ExternalDependencies.csproj" />
   </Folder>
   <Folder Name="/Internal/">
-    <Project Path="Mapping/Mapping.csproj" Id="95c7247d-5511-4692-aade-dd0eaa5fb2d9" />
-    <Project Path="Services/Service.csproj" />
+    <Project Path="Common/Common.csproj" Id="b15b7cc2-7460-452f-9f05-9a7e5852e73b" />
+    <Project Path="Services/EntityService.csproj" />
   </Folder>
   <Folder Name="/Internal/DataAccess/">
-    <Project Path="DataAccessService/DataAccessService.csproj" />
+    <Project Path="DataAccess.EF/DataAccess.EF.csproj" />
+    <Project Path="DataAccessCommon/DataAccessCommon.csproj" />
     <Project Path="Models/Models.csproj" />
-    <Project Path="Repositories/Repositories.csproj" />
   </Folder>
-  <Folder Name="/Internal/Testing/" />
+  <Folder Name="/Testing/" />
 </Solution>

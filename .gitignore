@@ -21,3 +21,7 @@
 /Public/bin/Debug/net10.0
 /API/bin/Debug/net10.0
 /Mapping/obj
+/Common/obj
+/DataAccess.EF/bin/Debug/net10.0
+/DataAccess.EF/obj
+/DataAccessCommon/obj
