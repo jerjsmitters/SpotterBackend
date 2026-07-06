@@ -3,25 +3,5 @@
 ################################################################################
 
 /.vs
-/BusinessServices/obj
-/DataAccessServices/obj
-/Entities/obj
-/Repositories/obj
-/BusinessEntities/obj
-/Entities/bin/Debug/net10.0
-/Interfacing/obj
-/DataAccessService/bin/Debug/net10.0
-/DataAccessService/obj
-/Models/bin/Debug/net10.0
-/Models/obj
-/Public/obj
-/Services/bin/Debug/net10.0
-/Services/obj
-/API/obj
-/Public/bin/Debug/net10.0
-/API/bin/Debug/net10.0
-/Mapping/obj
-/Common/obj
-/DataAccess.EF/bin/Debug/net10.0
-/DataAccess.EF/obj
-/DataAccessCommon/obj
+bin
+obj

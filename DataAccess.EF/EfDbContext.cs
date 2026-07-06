@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DataAccess.Domain.Instance;
+using DataAccess.Domain.ReferenceData;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Models.Instance;
-using Models.ReferenceData;
 
-namespace Models.EF
+namespace DataAccess.EF
 {
     public class EfDbContext : DbContext
     {

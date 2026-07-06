@@ -1,6 +1,6 @@
-﻿using DTOs.Instance;
+﻿using Common.Business;
+using Common.Dtos.Instance;
 using Microsoft.AspNetCore.Mvc;
-using Services.Public;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

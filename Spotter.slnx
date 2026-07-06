@@ -1,16 +1,14 @@
 <Solution>
   <Folder Name="/External/">
     <Project Path="API/API.csproj" Id="6d7c94d9-71f1-4e57-9135-045671c374ad" />
-    <Project Path="Public/ExternalDependencies.csproj" />
   </Folder>
   <Folder Name="/Internal/">
-    <Project Path="Common/Common.csproj" Id="b15b7cc2-7460-452f-9f05-9a7e5852e73b" />
-    <Project Path="Services/EntityService.csproj" />
+    <Project Path="Business/Business.csproj" />
   </Folder>
   <Folder Name="/Internal/DataAccess/">
     <Project Path="DataAccess.EF/DataAccess.EF.csproj" />
-    <Project Path="DataAccessCommon/DataAccessCommon.csproj" />
-    <Project Path="Models/Models.csproj" />
+    <Project Path="DataAccess/DataAccess.csproj" />
   </Folder>
   <Folder Name="/Testing/" />
+  <Project Path="Common/Common.csproj" Id="50f5ceb1-f5b1-4bcd-8f92-cf430ba01182" />
 </Solution>
