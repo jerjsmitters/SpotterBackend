@@ -1,15 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Models.Instance;
 using Models.ReferenceData;
-using Models.Template;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Models.EF
 {
     public class EfDbContext : DbContext
     {
+        private readonly IConfiguration _config;
+
+        public EfDbContext(IConfiguration configuration)
+        {
+            _config = configuration;
+        }
+
         //Reference Data
         public DbSet<ConfiguredMovement> ConfiguredMovements { get; set; }
         public DbSet<Movement> Movements { get; set; }
@@ -23,6 +27,9 @@ namespace Models.EF
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            var connectionString = _config.GetConnectionString("DefaultConnection");
+            optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+
             base.OnConfiguring(optionsBuilder);
         }
 

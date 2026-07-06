@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Models.Template
+namespace Models.ReferenceData
 {
     public class WorkoutTemplate
     {
