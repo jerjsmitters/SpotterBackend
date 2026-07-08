@@ -7,9 +7,9 @@ using Riok.Mapperly.Abstractions;
 namespace Business.Mapping.ReferenceData
 {
     [Mapper(EnumMappingStrategy = EnumMappingStrategy.ByName)]
-    public partial class WorkoutTemplateMapper
+    public partial class WorkoutTemplateMapper : IMapper<WorkoutTemplate, WorkoutTemplateDto>
     {
-        public partial WorkoutTemplateDto WorkoutTemplateToWorkoutTemplateDto(WorkoutTemplate model);
-        public partial WorkoutTemplate WorkoutTemplateDtoToWorkoutTemplate(WorkoutTemplateDto model);
+        public partial WorkoutTemplateDto ToDto(WorkoutTemplate model);
+        public partial WorkoutTemplate ToEntity(WorkoutTemplateDto model);
     }
 }

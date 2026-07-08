@@ -5,9 +5,9 @@ using Riok.Mapperly.Abstractions;
 namespace Business.Mapping.Instance
 {
     [Mapper(EnumMappingStrategy = EnumMappingStrategy.ByName)]
-    public partial class WorkoutInstanceMovementMapper
+    public partial class WorkoutInstanceMovementMapper : IMapper<WorkoutInstanceMovement, WorkoutInstanceMovementDto>
     {
-        public partial WorkoutInstanceMovementDto WorkoutInstanceMovementToWorkoutInstanceMovementDto(WorkoutInstanceMovement model);
-        public partial WorkoutInstanceMovement WorkoutInstanceMovementDtoToWorkoutInstanceMovement(WorkoutInstanceMovementDto model);
+        public partial WorkoutInstanceMovementDto ToDto(WorkoutInstanceMovement model);
+        public partial WorkoutInstanceMovement ToEntity(WorkoutInstanceMovementDto model);
     }
 }

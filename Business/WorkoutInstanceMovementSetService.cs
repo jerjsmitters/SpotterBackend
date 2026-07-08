@@ -3,9 +3,9 @@ using Common.Business;
 
 namespace Business
 {
-    public class WorkoutInstanceMovementSetService : IWorkoutInstanceMovementService
+    public class WorkoutInstanceMovementSetService : IWorkoutInstanceMovementSetService
     {
-        public Task<WorkoutInstanceMovementDto> CreateAsync(WorkoutInstanceMovementDto dto)
+        public Task<WorkoutInstanceMovementSetDto> CreateAsync(WorkoutInstanceMovementSetDto dto)
         {
             throw new NotImplementedException();
         }
@@ -15,17 +15,17 @@ namespace Business
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<WorkoutInstanceMovementDto>> GetAllAsync()
+        public Task<IEnumerable<WorkoutInstanceMovementSetDto>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<WorkoutInstanceMovementDto?> GetByIdAsync(int id)
+        public Task<WorkoutInstanceMovementSetDto?> GetByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<WorkoutInstanceMovementDto> UpdateAsync(WorkoutInstanceMovementDto dto)
+        public Task<WorkoutInstanceMovementSetDto> UpdateAsync(WorkoutInstanceMovementSetDto dto)
         {
             throw new NotImplementedException();
         }

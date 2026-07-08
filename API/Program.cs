@@ -1,10 +1,17 @@
 
 
+using API;
+using Business;
+using Business.Setup;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.RegisterBusinessServices();
+builder.Services.RegisterMappers();
+builder.Services.RegisterRepositories();
 
 var app = builder.Build();
 
@@ -23,3 +30,4 @@ new ConfigurationBuilder()
     .Build();
 
 app.Run();
+ 

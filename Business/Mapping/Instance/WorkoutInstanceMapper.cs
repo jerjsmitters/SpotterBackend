@@ -11,10 +11,10 @@ using DataAccess.Domain.Instance;
 
 namespace Business.Mapping.Instance
 {
-    [Mapper(EnumMappingStrategy = EnumMappingStrategy.ByName)]
-    public partial class WorkoutInstanceMapper
+    [Mapper]
+    public partial class WorkoutInstanceMapper : IMapper<WorkoutInstance, WorkoutInstanceDto>
     {
-        public partial WorkoutInstanceDto WorkoutInstanceToWorkoutInstanceDto(WorkoutInstance model);
-        public partial WorkoutInstance WorkoutInstancDtoToWorkoutInstance(WorkoutInstanceDto model);
+        public partial WorkoutInstanceDto ToDto(WorkoutInstance model);
+        public partial WorkoutInstance ToEntity(WorkoutInstanceDto model);
     }
 }

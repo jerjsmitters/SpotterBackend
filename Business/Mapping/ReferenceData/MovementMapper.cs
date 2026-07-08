@@ -5,9 +5,9 @@ using Riok.Mapperly.Abstractions;
 namespace Business.Mapping.ReferenceData
 {
     [Mapper(EnumMappingStrategy = EnumMappingStrategy.ByName)]
-    public partial class MovementMapper
+    public partial class MovementMapper : IMapper<Movement, MovementDto>
     {
-        public partial MovementDto MovementToMovementDto(Movement model);
-        public partial Movement MovementDtoToMovement(MovementDto model);
+        public partial MovementDto ToDto(Movement model);
+        public partial Movement ToEntity(MovementDto model);
     }
 }
