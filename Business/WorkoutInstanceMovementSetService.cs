@@ -1,33 +1,53 @@
 using Common.Dtos.Instance;
 using Common.Business;
+using Business.Mapping.Instance;
+using DataAccess.Domain.Instance;
+using DataAccess.Repositories.Instance;
 
 namespace Business
 {
     public class WorkoutInstanceMovementSetService : IWorkoutInstanceMovementSetService
     {
-        public Task<WorkoutInstanceMovementSetDto> CreateAsync(WorkoutInstanceMovementSetDto dto)
+        private readonly IWorkoutInstanceMovementSetRepository repo;
+
+        public WorkoutInstanceMovementSetService(IWorkoutInstanceMovementSetRepository workoutInstanceMovementSetRepository)
+        {
+            repo = workoutInstanceMovementSetRepository;
+        }
+
+        public async Task<WorkoutInstanceMovementSetDto?> GetByIdAsync(int id)
+        {
+            var result = await repo.GetByIdAsync(id);
+
+            if (result == null)
+            {
+                return null;
+            }
+
+            return result.ToDto();
+        }
+
+        public async Task<List<WorkoutInstanceMovementSetDto>> GetAllAsync()
+        {
+            var all = await repo.GetAllAsync();
+            return all.ToDtos();
+        }
+
+        public async Task<WorkoutInstanceMovementSetDto> CreateAsync(WorkoutInstanceMovementSetDto dto)
+        {
+            var entity = dto.ToEntity();
+            var saved = await repo.AddAsync(entity);
+            return saved.ToDto();
+        }
+
+        public Task<WorkoutInstanceMovementSetDto> UpdateAsync(WorkoutInstanceMovementSetDto dto)
         {
             throw new NotImplementedException();
         }
 
         public Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<WorkoutInstanceMovementSetDto>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<WorkoutInstanceMovementSetDto?> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<WorkoutInstanceMovementSetDto> UpdateAsync(WorkoutInstanceMovementSetDto dto)
-        {
-            throw new NotImplementedException();
+            return repo.DeleteAsync(id);
         }
     }
 }

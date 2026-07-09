@@ -18,14 +18,15 @@ namespace DataAccess.EF.Repositories.ReferenceData
         {
             return Context.WorkoutTemplates.FirstOrDefaultAsync(wt => wt.Id == id);
         }
-
-        public async Task AddAsync(WorkoutTemplate entity)
+        public async Task<WorkoutTemplate> AddAsync(WorkoutTemplate entity)
         {
             await Context.WorkoutTemplates.AddAsync(entity);
             await Context.SaveChangesAsync();
+
+            return entity;
         }
 
-        public async Task UpdateAsync(WorkoutTemplate entity)
+        public async Task<WorkoutTemplate> UpdateAsync(WorkoutTemplate entity)
         {
             var existing = await Context.WorkoutTemplates.FindAsync(entity.Id);
             if (existing == null)
@@ -35,10 +36,18 @@ namespace DataAccess.EF.Repositories.ReferenceData
 
             Context.Entry(existing).CurrentValues.SetValues(entity);
             await Context.SaveChangesAsync();
+
+            return entity;
         }
 
-        public async Task DeleteAsync(WorkoutTemplate entity)
+        public async Task DeleteAsync(int id)
         {
+            var entity = await Context.WorkoutTemplates.FirstOrDefaultAsync(wt => wt.Id == id);
+            if (entity == null)
+            {
+                return;
+            }
+
             Context.WorkoutTemplates.Remove(entity);
             await Context.SaveChangesAsync();
         }

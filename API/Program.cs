@@ -10,7 +10,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.RegisterBusinessServices();
-builder.Services.RegisterMappers();
 builder.Services.RegisterRepositories();
 
 var app = builder.Build();

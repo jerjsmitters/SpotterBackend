@@ -5,7 +5,7 @@ namespace Common.Business
 {
     public interface ICrudService<TDTO>
     {
-        Task<IEnumerable<TDTO>> GetAllAsync();
+        Task<List<TDTO>> GetAllAsync();
         Task<TDTO?> GetByIdAsync(int id);
         Task<TDTO> CreateAsync(TDTO dto);
         Task<TDTO> UpdateAsync(TDTO dto);

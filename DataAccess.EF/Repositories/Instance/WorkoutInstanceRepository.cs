@@ -18,14 +18,15 @@ namespace DataAccess.EF.Repositories.Instance
         {
             return Context.WorkoutInstances.FirstOrDefaultAsync(wi => wi.Id == id);
         }
-
-        public async Task AddAsync(WorkoutInstance entity)
+        public async Task<WorkoutInstance> AddAsync(WorkoutInstance entity)
         {
             await Context.WorkoutInstances.AddAsync(entity);
             await Context.SaveChangesAsync();
+
+            return entity;
         }
 
-        public async Task UpdateAsync(WorkoutInstance entity)
+        public async Task<WorkoutInstance> UpdateAsync(WorkoutInstance entity)
         {
             var existing = await Context.WorkoutInstances.FindAsync(entity.Id);
             if (existing == null)
@@ -35,10 +36,18 @@ namespace DataAccess.EF.Repositories.Instance
 
             Context.Entry(existing).CurrentValues.SetValues(entity);
             await Context.SaveChangesAsync();
+
+            return entity;
         }
 
-        public async Task DeleteAsync(WorkoutInstance entity)
+        public async Task DeleteAsync(int id)
         {
+            var entity = await Context.WorkoutInstances.FirstOrDefaultAsync(wi => wi.Id == id);
+            if (entity == null)
+            {
+                return;
+            }
+
             Context.WorkoutInstances.Remove(entity);
             await Context.SaveChangesAsync();
         }

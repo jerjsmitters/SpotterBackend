@@ -1,33 +1,53 @@
 using Common.Dtos.ReferenceData;
 using Common.Business;
+using Business.Mapping.ReferenceData;
+using DataAccess.Domain.ReferenceData;
+using DataAccess.Repositories.ReferenceData;
 
 namespace Business
 {
     public class MovementConfigurationService : IMovementConfigurationService
     {
-        public Task<MovementConfigurationDto> CreateAsync(MovementConfigurationDto dto)
+        private readonly IMovementConfigurationRepository repo;
+
+        public MovementConfigurationService(IMovementConfigurationRepository movementConfigurationRepository)
+        {
+            repo = movementConfigurationRepository;
+        }
+
+        public async Task<MovementConfigurationDto?> GetByIdAsync(int id)
+        {
+            var result = await repo.GetByIdAsync(id);
+
+            if (result == null)
+            {
+                return null;
+            }
+
+            return result.ToDto();
+        }
+
+        public async Task<List<MovementConfigurationDto>> GetAllAsync()
+        {
+            var all = await repo.GetAllAsync();
+            return all.ToDtos();
+        }
+
+        public async Task<MovementConfigurationDto> CreateAsync(MovementConfigurationDto dto)
+        {
+            var entity = dto.ToEntity();
+            var saved = await repo.AddAsync(entity);
+            return saved.ToDto();
+        }
+
+        public Task<MovementConfigurationDto> UpdateAsync(MovementConfigurationDto dto)
         {
             throw new NotImplementedException();
         }
 
         public Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<MovementConfigurationDto>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<MovementConfigurationDto?> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<MovementConfigurationDto> UpdateAsync(MovementConfigurationDto dto)
-        {
-            throw new NotImplementedException();
+            return repo.DeleteAsync(id);
         }
     }
 }

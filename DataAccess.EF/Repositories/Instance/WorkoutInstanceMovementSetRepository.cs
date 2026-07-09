@@ -18,14 +18,15 @@ namespace DataAccess.EF.Repositories.Instance
         {
             return Context.WorkoutInstanceMovementSets.FirstOrDefaultAsync(wims => wims.Id == id);
         }
-
-        public async Task AddAsync(WorkoutInstanceMovementSet entity)
+        public async Task<WorkoutInstanceMovementSet> AddAsync(WorkoutInstanceMovementSet entity)
         {
             await Context.WorkoutInstanceMovementSets.AddAsync(entity);
             await Context.SaveChangesAsync();
+
+            return entity;
         }
 
-        public async Task UpdateAsync(WorkoutInstanceMovementSet entity)
+        public async Task<WorkoutInstanceMovementSet> UpdateAsync(WorkoutInstanceMovementSet entity)
         {
             var existing = await Context.WorkoutInstanceMovementSets.FindAsync(entity.Id);
             if (existing == null)
@@ -35,10 +36,18 @@ namespace DataAccess.EF.Repositories.Instance
 
             Context.Entry(existing).CurrentValues.SetValues(entity);
             await Context.SaveChangesAsync();
+
+            return entity;
         }
 
-        public async Task DeleteAsync(WorkoutInstanceMovementSet entity)
+        public async Task DeleteAsync(int id)
         {
+            var entity = await Context.WorkoutInstanceMovementSets.FirstOrDefaultAsync(wims => wims.Id == id);
+            if (entity == null)
+            {
+                return;
+            }
+
             Context.WorkoutInstanceMovementSets.Remove(entity);
             await Context.SaveChangesAsync();
         }

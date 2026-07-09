@@ -18,14 +18,15 @@ namespace DataAccess.EF.Repositories.ReferenceData
         {
             return Context.Movements.FirstOrDefaultAsync(m => m.Id == id);
         }
-
-        public async Task AddAsync(Movement entity)
+        public async Task<Movement> AddAsync(Movement entity)
         {
             await Context.Movements.AddAsync(entity);
             await Context.SaveChangesAsync();
+
+            return entity;
         }
 
-        public async Task UpdateAsync(Movement entity)
+        public async Task<Movement> UpdateAsync(Movement entity)
         {
             var existing = await Context.Movements.FindAsync(entity.Id);
             if (existing == null)
@@ -35,10 +36,18 @@ namespace DataAccess.EF.Repositories.ReferenceData
 
             Context.Entry(existing).CurrentValues.SetValues(entity);
             await Context.SaveChangesAsync();
+
+            return entity;
         }
 
-        public async Task DeleteAsync(Movement entity)
+        public async Task DeleteAsync(int id)
         {
+            var entity = await Context.Movements.FirstOrDefaultAsync(m => m.Id == id);
+            if (entity == null)
+            {
+                return;
+            }
+
             Context.Movements.Remove(entity);
             await Context.SaveChangesAsync();
         }

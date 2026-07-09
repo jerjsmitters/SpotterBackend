@@ -19,21 +19,6 @@ namespace Business.Setup
 {
     public static class StartupExtensions
     {
-        public static IServiceCollection RegisterMappers(this IServiceCollection services)
-        {
-            services.AddScoped<IMapper<WorkoutInstance, WorkoutInstanceDto>, WorkoutInstanceMapper>();
-            services.AddScoped<IMapper<WorkoutInstanceMovement, WorkoutInstanceMovementDto>, WorkoutInstanceMovementMapper>();
-            services.AddScoped<IMapper<WorkoutInstanceMovementSet, WorkoutInstanceMovementSetDto>, WorkoutInstanceMovementSetMapper>();
-
-            services.AddScoped<IMapper<ConfiguredMovement, ConfiguredMovementDto>, ConfiguredMovementMapper>();
-            services.AddScoped<IMapper<Movement, MovementDto>, MovementMapper>();
-            services.AddScoped<IMapper<MovementConfiguration, MovementConfigurationDto>, MovementConfigurationMapper>();
-            services.AddScoped<IMapper<WorkoutTemplate, WorkoutTemplateDto>, WorkoutTemplateMapper>();
-
-            return services;
-
-        }
-
         public static IServiceCollection RegisterRepositories(this IServiceCollection services) 
         {
             services.AddScoped<IConfiguredMovementRepository, ConfiguredMovementRepository>();

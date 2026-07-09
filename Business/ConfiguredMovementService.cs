@@ -2,34 +2,54 @@
 
 using Common.Business;
 using Common.Dtos.ReferenceData;
+using Business.Mapping.ReferenceData;
+using DataAccess.Domain.ReferenceData;
+using DataAccess.Repositories.ReferenceData;
 
 namespace Business
 {
     public class ConfiguredMovementService : IConfiguredMovementService
     {
-        public Task<ConfiguredMovementDto> CreateAsync(ConfiguredMovementDto dto)
+        private readonly IConfiguredMovementRepository repo;
+
+        public ConfiguredMovementService(IConfiguredMovementRepository configuredMovementRepository)
+        {
+            repo = configuredMovementRepository;
+        }
+
+        public async Task<ConfiguredMovementDto?> GetByIdAsync(int id)
+        {
+            var result = await repo.GetByIdAsync(id);
+
+            if (result == null)
+            {
+                return null;
+            }
+
+            return result.ToDto();
+        }
+
+        public async Task<List<ConfiguredMovementDto>> GetAllAsync()
+        {
+            var all = await repo.GetAllAsync();
+            return all.ToDtos();
+        }
+
+        public async Task<ConfiguredMovementDto> CreateAsync(ConfiguredMovementDto dto)
+        {
+            var entity = dto.ToEntity();
+            var saved = await repo.AddAsync(entity);
+            return saved.ToDto();
+        }
+
+        public Task<ConfiguredMovementDto> UpdateAsync(ConfiguredMovementDto dto)
         {
             throw new NotImplementedException();
         }
 
         public Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<ConfiguredMovementDto>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ConfiguredMovementDto?> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ConfiguredMovementDto> UpdateAsync(ConfiguredMovementDto dto)
-        {
-            throw new NotImplementedException();
+            return repo.DeleteAsync(id);
         }
     }
 }
