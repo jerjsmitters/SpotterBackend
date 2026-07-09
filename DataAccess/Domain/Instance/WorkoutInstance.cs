@@ -8,7 +8,7 @@ namespace DataAccess.Domain.Instance
 {
     public class WorkoutInstance : TimedInstance
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public WorkoutTemplate WorkoutTemplate { get; set;  }
         public List<WorkoutInstanceMovement> WorkoutInstanceMovements { get; set; }
     }
