@@ -28,5 +28,14 @@ namespace DataAccess.EF
             base.OnConfiguring(optionsBuilder);
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Apply all IEntityTypeConfiguration implementations in this assembly
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(EfDbContext).Assembly);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
     }
+
 }
