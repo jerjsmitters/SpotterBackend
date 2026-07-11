@@ -8,15 +8,9 @@ namespace API.Controllers
 {
     [Route("api/workout-instance")]
     [ApiController]
-    public class WorkoutInstanceController : ControllerBase
+    public class WorkoutInstanceController(IWorkoutInstanceService workoutInstanceService) : ControllerBase
     {
-        private IWorkoutInstanceService _workoutInstanceService { get; }
-
-        public WorkoutInstanceController(IWorkoutInstanceService workoutInstanceService) 
-        {
-            this._workoutInstanceService = workoutInstanceService;
-        }
-
+        private readonly IWorkoutInstanceService _workoutInstanceService = workoutInstanceService;
 
         [HttpGet("{id}")]
         public async Task<ActionResult<WorkoutInstanceDto?>> Get(int id)

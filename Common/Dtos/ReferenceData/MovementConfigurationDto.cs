@@ -4,10 +4,10 @@ namespace Common.Dtos.ReferenceData
 {
     public record MovementConfigurationDto
     {
-        public int Id { get; set; }
-        public int TotalSets { get; set; }
-        public int SetRepRangeLowerBound { get; set; }
-        public int SetRepRangeUpperBound { get; set; }
-        public int RestTimeSeconds { get; set; }
+        public int? Id { get; init; }
+        public required int TotalSets { get; init; }
+        public required int SetRepRangeLowerBound { get; init; }
+        public required int SetRepRangeUpperBound { get; init; }
+        public required int RestTimeSeconds { get; init; }
     }
 }

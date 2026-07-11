@@ -4,9 +4,9 @@ namespace Common.Dtos.ReferenceData
 {
     public record ConfiguredMovementDto
     {
-        public int Id { get; set; }
-        public MovementDto Movement { get; set; }
-        public MovementConfigurationDto MovementConfiguration { get; set; }
-        public int Sequence { get; set; }
+        public int? Id { get; init; }
+        public required MovementDto Movement { get; init; }
+        public required MovementConfigurationDto MovementConfiguration { get; init; }
+        public int Sequence { get; init; }
     }
 }

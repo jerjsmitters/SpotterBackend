@@ -5,8 +5,8 @@ namespace Common.Dtos.ReferenceData
 {
     public record MovementDto
     {
-        public int? Id { get; set; }
-        public string Name { get; set; }
-        public List<MovementConfigurationDto> MovementConfigurations { get; set; }
+        public int? Id { get; init; }
+        public required string Name { get; init; }
+        public required List<MovementConfigurationDto> MovementConfigurations { get; init; }
     }
 }

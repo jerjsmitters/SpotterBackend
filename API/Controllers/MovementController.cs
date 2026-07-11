@@ -7,14 +7,9 @@ namespace API.Controllers
 {
     [Route("api/movement")]
     [ApiController]
-    public class MovementController : ControllerBase
+    public class MovementController(IMovementService movementService) : ControllerBase
     {
-        private IMovementService _movementService { get; }
-
-        public MovementController(IMovementService movementService)
-        {
-            this._movementService = movementService;
-        }
+        private readonly IMovementService _movementService = movementService;
 
         [HttpGet("{id}")]
         public async Task<ActionResult<MovementDto?>> Get(int id)

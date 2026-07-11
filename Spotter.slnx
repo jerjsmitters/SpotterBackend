@@ -6,8 +6,9 @@
     <Project Path="Business/Business.csproj" />
   </Folder>
   <Folder Name="/Internal/DataAccess/">
+    <Project Path="DataAccess.Domain/DataAccess.Domain.csproj" />
     <Project Path="DataAccess.EF/DataAccess.EF.csproj" />
-    <Project Path="DataAccess/DataAccess.csproj" />
+    <Project Path="DataAccess/DataAccess.Abstractions.csproj" />
   </Folder>
   <Folder Name="/Testing/" />
   <Project Path="Common/Common.csproj" Id="50f5ceb1-f5b1-4bcd-8f92-cf430ba01182" />

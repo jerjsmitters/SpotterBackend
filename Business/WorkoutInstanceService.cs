@@ -6,14 +6,9 @@ using DataAccess.Repositories.Instance;
 
 namespace Business
 {
-    public class WorkoutInstanceService : IWorkoutInstanceService
+    public class WorkoutInstanceService(IWorkoutInstanceRepository workoutInstanceRepository) : IWorkoutInstanceService
     {
-        private readonly IWorkoutInstanceRepository repo;
-
-        public WorkoutInstanceService(IWorkoutInstanceRepository workoutInstanceRepository)
-        {
-            repo = workoutInstanceRepository;
-        }
+        private readonly IWorkoutInstanceRepository repo = workoutInstanceRepository;
 
         public async Task<WorkoutInstanceDto?> GetByIdAsync(int id)
         {

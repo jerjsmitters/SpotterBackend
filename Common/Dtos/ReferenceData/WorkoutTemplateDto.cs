@@ -5,8 +5,8 @@ namespace Common.Dtos.ReferenceData
 {
     public record WorkoutTemplateDto
     {
-        public int? Id { get; set; }
-        public string Name { get; set; }
-        public List<ConfiguredMovementDto> ConfiguredMovements { get; set; }
+        public int? Id { get; init; }
+        public required string Name { get; init; }
+        public required List<ConfiguredMovementDto> ConfiguredMovements { get; init; }
     }
 }

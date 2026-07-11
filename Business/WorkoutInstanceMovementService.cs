@@ -6,14 +6,9 @@ using DataAccess.Repositories.Instance;
 
 namespace Business
 {
-    public class WorkoutInstanceMovementService : IWorkoutInstanceMovementService
+    public class WorkoutInstanceMovementService(IWorkoutInstanceMovementRepository workoutInstanceMovementRepository) : IWorkoutInstanceMovementService
     {
-        private readonly IWorkoutInstanceMovementRepository repo;
-
-        public WorkoutInstanceMovementService(IWorkoutInstanceMovementRepository workoutInstanceMovementRepository)
-        {
-            repo = workoutInstanceMovementRepository;
-        }
+        private readonly IWorkoutInstanceMovementRepository repo = workoutInstanceMovementRepository;
 
         public async Task<WorkoutInstanceMovementDto?> GetByIdAsync(int id)
         {

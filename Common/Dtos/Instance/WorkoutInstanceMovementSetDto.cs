@@ -5,8 +5,8 @@ namespace Common.Dtos.Instance
 {
     public record WorkoutInstanceMovementSetDto : TimedInstanceDto
     {
-        public int Id { get; set; }
-        public int SetNumber { get; set; }
-        public int Reps { get; set; }
+        public int? Id { get; init; }
+        public required int SetNumber { get; init; }
+        public required int Reps { get; init; }
     }
 }

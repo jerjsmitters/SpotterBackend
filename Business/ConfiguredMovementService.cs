@@ -8,14 +8,9 @@ using DataAccess.Repositories.ReferenceData;
 
 namespace Business
 {
-    public class ConfiguredMovementService : IConfiguredMovementService
+    public class ConfiguredMovementService(IConfiguredMovementRepository configuredMovementRepository) : IConfiguredMovementService
     {
-        private readonly IConfiguredMovementRepository repo;
-
-        public ConfiguredMovementService(IConfiguredMovementRepository configuredMovementRepository)
-        {
-            repo = configuredMovementRepository;
-        }
+        private readonly IConfiguredMovementRepository repo = configuredMovementRepository;
 
         public async Task<ConfiguredMovementDto?> GetByIdAsync(int id)
         {

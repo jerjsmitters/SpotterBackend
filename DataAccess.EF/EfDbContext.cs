@@ -5,14 +5,9 @@ using Microsoft.Extensions.Configuration;
 
 namespace DataAccess.EF
 {
-    public class EfDbContext : DbContext
+    public class EfDbContext(IConfiguration configuration) : DbContext
     {
-        private readonly IConfiguration _config;
-
-        public EfDbContext(IConfiguration configuration)
-        {
-            _config = configuration;
-        }
+        private readonly IConfiguration _config = configuration;
 
         //Reference Data
         public DbSet<ConfiguredMovement> ConfiguredMovements { get; set; }
