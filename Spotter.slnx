@@ -6,7 +6,7 @@
     <Project Path="Business/Business.csproj" />
   </Folder>
   <Folder Name="/Internal/DataAccess/">
-    <Project Path="DataAccess.Domain/DataAccess.Domain.csproj" />
+    <Project Path="DataAccess.Domain/DataAccess.ORM.Setup.csproj" />
     <Project Path="DataAccess.EF/DataAccess.EF.csproj" />
     <Project Path="DataAccess/DataAccess.Abstractions.csproj" />
   </Folder>

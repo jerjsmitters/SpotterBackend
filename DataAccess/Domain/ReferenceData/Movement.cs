@@ -6,7 +6,7 @@ namespace DataAccess.Domain.ReferenceData
 {
     public class Movement
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
 
         //primary movers

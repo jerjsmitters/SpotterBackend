@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using DataAccess.Domain.Instance;
+using DataAccess.EF.DbContextImplementation;
 using DataAccess.Repositories.Instance;
 using Microsoft.EntityFrameworkCore;
 

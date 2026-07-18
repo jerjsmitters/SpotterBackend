@@ -1,14 +1,11 @@
 ﻿using DataAccess.Domain.Instance;
 using DataAccess.Domain.ReferenceData;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
-namespace DataAccess.EF
+namespace DataAccess.EF.DbContextImplementation
 {
-    public class EfDbContext(IConfiguration configuration) : DbContext
+    public class EfDbContext(DbContextOptions<EfDbContext> dbContextOptions) : DbContext(dbContextOptions)
     {
-        private readonly IConfiguration _config = configuration;
-
         //Reference Data
         public DbSet<ConfiguredMovement> ConfiguredMovements { get; set; }
         public DbSet<Movement> Movements { get; set; }
@@ -19,14 +16,6 @@ namespace DataAccess.EF
         public DbSet<WorkoutInstance> WorkoutInstances { get; set; }
         public DbSet<WorkoutInstanceMovement> WorkoutInstanceMovements { get; set; }
         public DbSet<WorkoutInstanceMovementSet> WorkoutInstanceMovementSets { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            var connectionString = _config.GetConnectionString("DefaultConnection");
-            optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-
-            base.OnConfiguring(optionsBuilder);
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
